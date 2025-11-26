@@ -1,0 +1,408 @@
+---
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+---
+
+<header class:list={["header", { transparent }]}>
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+        <path d="M20 2L4 12v16l16 10 16-10V12L20 2z" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 10l-8 5v10l8 5 8-5V15l-8-5z" fill="currentColor" opacity="0.3"/>
+        <path d="M20 16l-4 2.5v5l4 2.5 4-2.5v-5L20 16z" fill="currentColor"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Costa Riviera</span>
+        <span class="logo-tagline">Realty</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/properties" class="nav-link">Properties</a>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link dropdown-trigger">
+          Buy
+          <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+            <path fill="currentColor" d="M7 10l5 5 5-5H7z"/>
+          </svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="/properties?type=condo">Condos</a>
+          <a href="/properties?type=villa">Villas</a>
+          <a href="/properties?type=penthouse">Penthouses</a>
+          <a href="/properties?type=land">Land</a>
+        </div>
+      </div>
+      <a href="/rentals" class="nav-link">Rentals</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- CTA & Language -->
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button class="lang-btn active">EN</button>
+        <button class="lang-btn">ES</button>
+      </div>
+      <a href="/contact" class="btn btn-primary btn-header">
+        Schedule Viewing
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <div class="mobile-nav-content">
+    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/properties" class="mobile-nav-link">Properties</a>
+    <a href="/properties?type=condo" class="mobile-nav-link sub">Condos</a>
+    <a href="/properties?type=villa" class="mobile-nav-link sub">Villas</a>
+    <a href="/properties?type=penthouse" class="mobile-nav-link sub">Penthouses</a>
+    <a href="/rentals" class="mobile-nav-link">Rentals</a>
+    <a href="/about" class="mobile-nav-link">About</a>
+    <a href="/contact" class="mobile-nav-link">Contact</a>
+    
+    <div class="mobile-nav-cta">
+      <a href="/contact" class="btn btn-primary btn-lg">Schedule Viewing</a>
+      <div class="mobile-lang">
+        <button class="lang-btn active">English</button>
+        <button class="lang-btn">Español</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+  }
+
+  .header.transparent {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .header.transparent.scrolled {
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header.transparent:not(.scrolled) .nav-link,
+  .header.transparent:not(.scrolled) .logo-name,
+  .header.transparent:not(.scrolled) .logo-tagline,
+  .header.transparent:not(.scrolled) .logo-icon {
+    color: var(--color-white);
+  }
+
+  .header-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-md) var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-ocean-deep);
+    transition: color var(--transition-base);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ocean-deep);
+    transition: color var(--transition-base);
+  }
+
+  .logo-tagline {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-seafoam);
+    transition: color var(--transition-base);
+  }
+
+  /* Navigation */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    position: relative;
+    padding: var(--space-sm) 0;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-seafoam);
+    transition: width var(--transition-base);
+  }
+
+  .nav-link:hover {
+    color: var(--color-ocean);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Dropdown */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .dropdown-icon {
+    transition: transform var(--transition-fast);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-sm);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav-dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .dropdown-menu a:hover {
+    background: var(--color-sand-light);
+    color: var(--color-ocean);
+  }
+
+  /* Header Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .lang-switch {
+    display: flex;
+    border: 1px solid var(--color-sand-dark);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .lang-btn.active {
+    background: var(--color-ocean-deep);
+    color: var(--color-white);
+  }
+
+  .btn-header {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.8rem;
+  }
+
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-ocean-deep);
+    transition: all var(--transition-fast);
+  }
+
+  .header.transparent:not(.scrolled) .menu-toggle span {
+    background: var(--color-white);
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile Navigation */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--color-white);
+    z-index: 999;
+    transition: right var(--transition-base);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mobile-nav.open {
+    right: 0;
+  }
+
+  .mobile-nav-content {
+    padding: 100px var(--space-xl) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-ocean-deep);
+    text-decoration: none;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-sand);
+    transition: color var(--transition-fast);
+  }
+
+  .mobile-nav-link.sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding-left: var(--space-lg);
+    border-bottom: none;
+    color: var(--color-charcoal);
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--color-seafoam);
+  }
+
+  .mobile-nav-cta {
+    margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .mobile-lang {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .mobile-lang .lang-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border: 1px solid var(--color-sand-dark);
+    border-radius: var(--radius-full);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .nav-desktop {
+      display: none;
+    }
+
+    .header-actions .lang-switch,
+    .header-actions .btn-header {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+</style>

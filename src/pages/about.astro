@@ -1,0 +1,629 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const team = [
+  {
+    name: "Carlos Mendez",
+    role: "Founder & CEO",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    bio: "With over 20 years in Riviera Maya real estate, Carlos founded Costa Riviera to provide exceptional service to international buyers."
+  },
+  {
+    name: "Maria Santos",
+    role: "Director of Sales",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    bio: "Maria's expertise in luxury properties and client relations has helped hundreds of families find their dream home."
+  },
+  {
+    name: "James Wilson",
+    role: "International Relations",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    bio: "Originally from the US, James specializes in helping North American and European clients navigate the Mexican market."
+  },
+  {
+    name: "Ana Garcia",
+    role: "Legal Coordinator",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    bio: "Ana ensures all transactions comply with Mexican real estate law, making your investment secure and worry-free."
+  }
+];
+---
+
+<Layout title="About Us - Costa Riviera Realty">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-bg">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">About Us</span>
+          <h1>Your Trusted Partner in Paradise</h1>
+          <p>Since 2009, we've been helping clients discover their perfect property in the Riviera Maya.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="about-story section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-content reveal">
+            <span class="section-label">Our Story</span>
+            <h2>Building Dreams in the Caribbean</h2>
+            <p>
+              Costa Riviera Realty was founded with a simple mission: to provide exceptional, 
+              personalized real estate services to clients seeking their piece of paradise in Mexico's 
+              stunning Riviera Maya.
+            </p>
+            <p>
+              What started as a small family business has grown into one of the region's most trusted 
+              real estate agencies, with a team of dedicated professionals who share a passion for 
+              this beautiful corner of the world.
+            </p>
+            <p>
+              We understand that buying property in a foreign country can be daunting. That's why 
+              we guide our clients through every step of the process, from property search to legal 
+              documentation, financing, and beyond. Our commitment to transparency, integrity, and 
+              client satisfaction has earned us a reputation for excellence.
+            </p>
+            <div class="story-signature">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Carlos Mendez" />
+              <div>
+                <span class="signature-name">Carlos Mendez</span>
+                <span class="signature-title">Founder & CEO</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-images reveal">
+            <div class="image-stack">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Luxury property" class="stack-main" />
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80" alt="Team meeting" class="stack-secondary" />
+              <div class="stack-badge">
+                <span class="badge-number">15+</span>
+                <span class="badge-text">Years of Excellence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-values section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Values</span>
+          <h2 class="section-title">What Sets Us Apart</h2>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Trust & Integrity</h3>
+            <p>We operate with complete transparency in every transaction, ensuring you have all the information you need to make informed decisions.</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>Dedication</h3>
+            <p>We're available when you need us, providing responsive support throughout your property journey and beyond.</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Local Expertise</h3>
+            <p>Our deep knowledge of the Riviera Maya means we can guide you to the perfect location that matches your lifestyle.</p>
+          </div>
+          
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3>Client First</h3>
+            <p>Your satisfaction is our priority. We build lasting relationships by putting your needs at the center of everything we do.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="about-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <span class="stat-number">$500M+</span>
+            <span class="stat-label">Properties Sold</span>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number">1,200+</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="about-team section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Meet the Team</span>
+          <h2 class="section-title">Expert Guidance at Every Step</h2>
+          <p class="section-subtitle">Our dedicated team of professionals is here to make your real estate journey seamless.</p>
+        </div>
+        
+        <div class="team-grid">
+          {team.map((member, index) => (
+            <div class="team-card reveal" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="team-image">
+                <img src={member.image} alt={member.name} />
+                <div class="team-social">
+                  <a href="#" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                  <a href="#" aria-label="Email">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h3>{member.name}</h3>
+                <span class="team-role">{member.role}</span>
+                <p>{member.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+      <div class="container">
+        <div class="cta-content reveal">
+          <h2>Ready to Start Your Journey?</h2>
+          <p>Let us help you find your perfect property in paradise.</p>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn btn-gold btn-lg">Contact Us Today</a>
+            <a href="/properties" class="btn btn-white btn-lg">Browse Properties</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Hero */
+  .about-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 160px 0 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 61, 98, 0.9) 0%, rgba(10, 61, 98, 0.8) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--color-white);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-lg);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-content h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Story Section */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  .story-content .section-label::before,
+  .story-content .section-label::after {
+    display: none;
+  }
+
+  .story-content h2 {
+    text-align: left;
+    margin-bottom: var(--space-xl);
+  }
+
+  .story-content p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .story-signature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-sand);
+  }
+
+  .story-signature img {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+  }
+
+  .signature-name {
+    display: block;
+    font-weight: 600;
+    color: var(--color-ocean-deep);
+  }
+
+  .signature-title {
+    font-size: 0.85rem;
+    color: var(--color-charcoal);
+    opacity: 0.7;
+  }
+
+  .image-stack {
+    position: relative;
+  }
+
+  .stack-main {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .stack-secondary {
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 50%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 4px solid var(--color-white);
+  }
+
+  .stack-badge {
+    position: absolute;
+    top: var(--space-xl);
+    right: -20px;
+    background: var(--color-gold);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .badge-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-midnight);
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-midnight);
+  }
+
+  /* Values */
+  .about-values {
+    background: var(--color-sand-light);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .value-card {
+    background: var(--color-white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all var(--transition-base);
+  }
+
+  .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .value-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: var(--color-sand-light);
+    border-radius: var(--radius-full);
+    color: var(--color-ocean);
+    margin-bottom: var(--space-lg);
+  }
+
+  .value-card h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .value-card p {
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Stats */
+  .about-stats {
+    background: var(--color-ocean-deep);
+    padding: var(--space-4xl) 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--color-white);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .team-card {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .team-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .team-card:hover .team-image img {
+    transform: scale(1.05);
+  }
+
+  .team-social {
+    position: absolute;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    display: flex;
+    gap: var(--space-sm);
+    opacity: 0;
+    transition: all var(--transition-base);
+  }
+
+  .team-card:hover .team-social {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .team-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-white);
+    border-radius: var(--radius-full);
+    color: var(--color-ocean);
+    transition: all var(--transition-fast);
+  }
+
+  .team-social a:hover {
+    background: var(--color-ocean);
+    color: var(--color-white);
+  }
+
+  .team-info {
+    padding: var(--space-lg);
+    text-align: center;
+  }
+
+  .team-info h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .team-role {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-seafoam);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+
+  .team-info p {
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* CTA */
+  .about-cta {
+    background: linear-gradient(135deg, var(--color-seafoam) 0%, var(--color-ocean) 100%);
+    padding: var(--space-5xl) 0;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .story-images {
+      order: -1;
+    }
+
+    .values-grid,
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .values-grid,
+    .team-grid,
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stack-secondary {
+      display: none;
+    }
+
+    .stack-badge {
+      right: var(--space-md);
+    }
+  }
+</style>

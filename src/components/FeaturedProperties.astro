@@ -1,0 +1,238 @@
+---
+import PropertyCard from './PropertyCard.astro';
+
+// Sample properties data
+const properties = [
+  {
+    id: "ocean-view-penthouse",
+    title: "Stunning Ocean View Penthouse in Playacar",
+    location: "Playacar, Playa del Carmen",
+    price: 895000,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    bedrooms: 3,
+    bathrooms: 3,
+    area: 245,
+    type: "Penthouse",
+    badge: "featured" as const
+  },
+  {
+    id: "beachfront-condo",
+    title: "Luxury Beachfront Condo with Private Pool",
+    location: "Centro, Playa del Carmen",
+    price: 485000,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: 156,
+    type: "Condo",
+    badge: "new" as const
+  },
+  {
+    id: "jungle-villa",
+    title: "Modern Jungle Villa with Cenote Access",
+    location: "Tulum",
+    price: 1250000,
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    bedrooms: 4,
+    bathrooms: 4,
+    area: 380,
+    type: "Villa",
+    badge: null
+  },
+  {
+    id: "marina-apartment",
+    title: "Elegant Marina View Apartment",
+    location: "Puerto Aventuras",
+    price: 375000,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: 128,
+    type: "Apartment",
+    badge: null
+  },
+  {
+    id: "golf-villa",
+    title: "Exclusive Golf Course Villa",
+    location: "Playacar Fase II",
+    price: 1750000,
+    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
+    bedrooms: 5,
+    bathrooms: 5,
+    area: 520,
+    type: "Villa",
+    badge: "featured" as const
+  },
+  {
+    id: "beach-studio",
+    title: "Charming Beach Studio - Perfect Investment",
+    location: "5th Avenue, Playa del Carmen",
+    price: 189000,
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+    bedrooms: 1,
+    bathrooms: 1,
+    area: 65,
+    type: "Studio",
+    badge: "new" as const
+  }
+];
+---
+
+<section class="featured-properties section" id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Handpicked Selection</span>
+      <h2 class="section-title">Featured Properties</h2>
+      <p class="section-subtitle">
+        Explore our curated collection of exceptional properties in the most desirable locations of the Riviera Maya.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="property-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Properties</button>
+      <button class="filter-btn" data-filter="condo">Condos</button>
+      <button class="filter-btn" data-filter="villa">Villas</button>
+      <button class="filter-btn" data-filter="penthouse">Penthouses</button>
+      <button class="filter-btn" data-filter="land">Land</button>
+    </div>
+
+    <!-- Properties Grid -->
+    <div class="properties-grid">
+      {properties.map((property, index) => (
+        <div class="property-item reveal" style={`animation-delay: ${index * 0.1}s`}>
+          <PropertyCard {...property} />
+        </div>
+      ))}
+    </div>
+
+    <!-- View All CTA -->
+    <div class="featured-cta reveal">
+      <a href="/properties" class="btn btn-primary btn-lg">
+        View All Properties
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <p class="cta-note">Over 500+ properties available</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-properties {
+    background: var(--gradient-sand);
+    position: relative;
+  }
+
+  .featured-properties::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, var(--color-sand-light), transparent);
+    pointer-events: none;
+  }
+
+  /* Filter Tabs */
+  .property-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .filter-btn {
+    padding: var(--space-sm) var(--space-xl);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    background: var(--color-white);
+    border: 2px solid var(--color-sand-dark);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-ocean);
+    color: var(--color-ocean);
+  }
+
+  .filter-btn.active {
+    background: var(--color-ocean-deep);
+    border-color: var(--color-ocean-deep);
+    color: var(--color-white);
+  }
+
+  /* Properties Grid */
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .property-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* CTA */
+  .featured-cta {
+    text-align: center;
+  }
+
+  .featured-cta .btn {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-note {
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    opacity: 0.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .properties-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .properties-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .property-filters {
+      gap: var(--space-xs);
+    }
+
+    .filter-btn {
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Filter logic would go here
+      const filter = btn.dataset.filter;
+      console.log('Filtering by:', filter);
+    });
+  });
+</script>

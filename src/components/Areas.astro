@@ -1,0 +1,278 @@
+---
+const areas = [
+  {
+    name: "Playa del Carmen",
+    slug: "playa-del-carmen",
+    description: "The heart of the Riviera Maya with vibrant 5th Avenue, beautiful beaches, and urban convenience.",
+    image: "https://images.unsplash.com/photo-1510097467424-192d713fd8b2?w=800&q=80",
+    properties: 187,
+    priceRange: "$150K - $2M"
+  },
+  {
+    name: "Playacar",
+    slug: "playacar",
+    description: "Exclusive gated community with golf course, pristine beaches, and lush tropical gardens.",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80",
+    properties: 94,
+    priceRange: "$300K - $3M"
+  },
+  {
+    name: "Tulum",
+    slug: "tulum",
+    description: "Bohemian paradise known for ancient ruins, cenotes, and eco-conscious luxury living.",
+    image: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=800&q=80",
+    properties: 142,
+    priceRange: "$200K - $4M"
+  },
+  {
+    name: "Puerto Aventuras",
+    slug: "puerto-aventuras",
+    description: "Marina community perfect for yacht owners with dolphin encounters and family-friendly atmosphere.",
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800&q=80",
+    properties: 68,
+    priceRange: "$180K - $1.5M"
+  }
+];
+---
+
+<section class="areas section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Explore the Region</span>
+      <h2 class="section-title">Popular Neighborhoods</h2>
+      <p class="section-subtitle">
+        Discover the unique character of each area in the Riviera Maya and find the perfect location for your new home.
+      </p>
+    </div>
+
+    <div class="areas-grid">
+      {areas.map((area, index) => (
+        <a href={`/area/${area.slug}`} class="area-card reveal" style={`animation-delay: ${index * 0.15}s`}>
+          <div class="area-image">
+            <img src={area.image} alt={area.name} loading="lazy" />
+            <div class="area-overlay"></div>
+          </div>
+          <div class="area-content">
+            <h3 class="area-name">{area.name}</h3>
+            <p class="area-description">{area.description}</p>
+            <div class="area-meta">
+              <span class="area-stat">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                {area.properties} Properties
+              </span>
+              <span class="area-stat">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                </svg>
+                {area.priceRange}
+              </span>
+            </div>
+            <span class="area-cta">
+              Explore Area
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Map Preview -->
+    <div class="areas-map reveal">
+      <div class="map-container">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <h4>Interactive Map Coming Soon</h4>
+          <p>Explore all our properties on an interactive map</p>
+          <a href="/properties" class="btn btn-secondary">Browse Properties</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .areas {
+    background: var(--color-sand-light);
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .area-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: var(--color-white);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .area-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .area-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .area-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .area-card:hover .area-image img {
+    transform: scale(1.1);
+  }
+
+  .area-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10, 61, 98, 0.6) 0%,
+      transparent 50%
+    );
+  }
+
+  .area-content {
+    padding: var(--space-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .area-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-ocean-deep);
+    margin-bottom: var(--space-sm);
+  }
+
+  .area-description {
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex: 1;
+  }
+
+  .area-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .area-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    color: var(--color-charcoal);
+    opacity: 0.7;
+  }
+
+  .area-stat svg {
+    color: var(--color-seafoam);
+  }
+
+  .area-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-ocean);
+    margin-top: auto;
+  }
+
+  .area-cta svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .area-card:hover .area-cta svg {
+    transform: translateX(4px);
+  }
+
+  /* Map Section */
+  .areas-map {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .map-container {
+    aspect-ratio: 21/9;
+    background: 
+      linear-gradient(135deg, var(--color-sand-light) 25%, transparent 25%),
+      linear-gradient(225deg, var(--color-sand-light) 25%, transparent 25%),
+      linear-gradient(45deg, var(--color-sand-light) 25%, transparent 25%),
+      linear-gradient(315deg, var(--color-sand-light) 25%, var(--color-sand) 25%);
+    background-size: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-placeholder {
+    text-align: center;
+    padding: var(--space-3xl);
+  }
+
+  .map-placeholder svg {
+    color: var(--color-ocean-light);
+    margin-bottom: var(--space-lg);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .map-placeholder h4 {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .map-placeholder p {
+    color: var(--color-charcoal);
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .areas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .areas-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .map-container {
+      aspect-ratio: 4/3;
+    }
+  }
+</style>

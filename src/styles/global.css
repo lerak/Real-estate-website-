@@ -1,0 +1,507 @@
+/* Costa Riviera Realty - Design System */
+/* Aesthetic: Luxury Coastal / Tropical Elegance */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette - Ocean & Sand */
+  --color-ocean-deep: #0A3D62;
+  --color-ocean: #1B6CA8;
+  --color-ocean-light: #5DADE2;
+  --color-seafoam: #48C9B0;
+  --color-sand: #F5E6D3;
+  --color-sand-light: #FDF8F3;
+  --color-sand-dark: #D4C4B0;
+  --color-coral: #E74C3C;
+  --color-coral-soft: #F39C8B;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4E5B2;
+  --color-midnight: #1A1A2E;
+  --color-charcoal: #2C3E50;
+  --color-white: #FFFFFF;
+  
+  /* Gradients */
+  --gradient-ocean: linear-gradient(135deg, var(--color-ocean-deep) 0%, var(--color-ocean) 50%, var(--color-ocean-light) 100%);
+  --gradient-sunset: linear-gradient(135deg, var(--color-coral-soft) 0%, var(--color-gold-light) 50%, var(--color-sand) 100%);
+  --gradient-sand: linear-gradient(180deg, var(--color-sand-light) 0%, var(--color-sand) 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(10, 61, 98, 0.7) 0%, rgba(10, 61, 98, 0.3) 100%);
+  
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(10, 61, 98, 0.08);
+  --shadow-md: 0 4px 24px rgba(10, 61, 98, 0.12);
+  --shadow-lg: 0 8px 48px rgba(10, 61, 98, 0.16);
+  --shadow-xl: 0 16px 64px rgba(10, 61, 98, 0.2);
+  --shadow-glow: 0 0 40px rgba(72, 201, 176, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Container */
+  --container-max: 1400px;
+  --container-padding: var(--space-xl);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background-color: var(--color-sand-light);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ocean-deep);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-ocean);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-ocean-deep);
+}
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--color-ocean);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ocean-deep);
+  border: 2px solid var(--color-ocean-deep);
+}
+
+.btn-secondary:hover {
+  background: var(--color-ocean-deep);
+  color: var(--color-white);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #E5C158 100%);
+  color: var(--color-midnight);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-ocean-deep);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-lg {
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: 1rem;
+}
+
+/* Section Styling */
+.section {
+  padding: var(--space-5xl) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-seafoam);
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: var(--color-seafoam);
+}
+
+.section-label::before {
+  right: calc(100% + var(--space-md));
+}
+
+.section-label::after {
+  left: calc(100% + var(--space-md));
+}
+
+.section-title {
+  margin-bottom: var(--space-lg);
+}
+
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-charcoal);
+  opacity: 0.8;
+}
+
+/* Card Base */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 2px solid var(--color-sand-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-ocean);
+  box-shadow: 0 0 0 4px rgba(27, 108, 168, 0.1);
+}
+
+input::placeholder {
+  color: var(--color-sand-dark);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: var(--space-md);
+  }
+  
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .btn-lg {
+    padding: var(--space-md) var(--space-xl);
+    font-size: 0.9rem;
+  }
+}
+
+/* Decorative Elements */
+.wave-divider {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Image Treatment */
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+}
+
+.badge-featured {
+  background: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+.badge-new {
+  background: var(--color-seafoam);
+  color: var(--color-white);
+}
+
+.badge-sold {
+  background: var(--color-coral);
+  color: var(--color-white);
+}
+
+/* Price Tag */
+.price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ocean-deep);
+}
+
+.price-currency {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-ocean-light);
+  color: var(--color-white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ocean);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ocean-deep);
+}

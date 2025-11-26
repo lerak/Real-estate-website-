@@ -1,0 +1,789 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const properties = [
+    {
+      id: "ocean-view-penthouse",
+      title: "Stunning Ocean View Penthouse in Playacar",
+      location: "Playacar, Playa del Carmen",
+      address: "Calle Paseo Xaman-Ha, Playacar Phase 2, 77710",
+      price: 895000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80"
+      ],
+      bedrooms: 3,
+      bathrooms: 3,
+      area: 245,
+      yearBuilt: 2022,
+      parking: 2,
+      type: "Penthouse",
+      status: "For Sale",
+      badge: "featured",
+      description: `This stunning penthouse offers breathtaking ocean views from every room. Located in the prestigious Playacar community, this property combines luxury living with the natural beauty of the Riviera Maya.
+
+The open-concept living area features floor-to-ceiling windows, flooding the space with natural light and showcasing panoramic Caribbean Sea views. The gourmet kitchen is equipped with top-of-the-line stainless steel appliances, quartz countertops, and a large island perfect for entertaining.
+
+The master suite is a true retreat, featuring a private balcony, walk-in closet, and spa-like bathroom with dual vanities, a soaking tub, and rainfall shower. Two additional bedrooms each have en-suite bathrooms and access to shared terraces.
+
+The expansive rooftop terrace is perfect for entertaining, complete with a private pool, outdoor kitchen, and lounge areas offering 360-degree views of the ocean and jungle.`,
+      features: [
+        "Private Rooftop Pool",
+        "360° Ocean Views",
+        "Smart Home System",
+        "Italian Marble Floors",
+        "Designer Kitchen",
+        "Walk-in Closets",
+        "Private Elevator",
+        "Climate Control AC"
+      ],
+      amenities: [
+        "24/7 Security",
+        "Concierge Service",
+        "Beach Club Access",
+        "Fitness Center",
+        "Underground Parking",
+        "Backup Generator",
+        "High-Speed Internet",
+        "Pet Friendly"
+      ],
+      agent: {
+        name: "Maria Santos",
+        role: "Director of Sales",
+        phone: "+52 (984) 123-4567",
+        email: "maria@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80"
+      }
+    },
+    {
+      id: "beachfront-condo",
+      title: "Luxury Beachfront Condo with Private Pool",
+      location: "Centro, Playa del Carmen",
+      address: "5th Avenue & 38th Street, Centro, 77710",
+      price: 485000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80"
+      ],
+      bedrooms: 2,
+      bathrooms: 2,
+      area: 156,
+      yearBuilt: 2021,
+      parking: 1,
+      type: "Condo",
+      status: "For Sale",
+      badge: "new",
+      description: `Experience beachfront living at its finest in this beautifully designed 2-bedroom condo. Steps away from the famous 5th Avenue and pristine white sand beaches, this property offers the perfect blend of convenience and luxury.
+
+The modern interior features an open floor plan with high ceilings, creating a spacious and airy atmosphere. Large sliding doors open to a generous terrace overlooking the Caribbean Sea, perfect for morning coffee or sunset cocktails.
+
+The fully equipped kitchen boasts modern appliances, ample storage, and a breakfast bar. Both bedrooms are generously sized with built-in closets, and the master suite includes an en-suite bathroom.
+
+Building amenities include a stunning rooftop infinity pool, sun deck, and BBQ area with panoramic ocean views.`,
+      features: [
+        "Beachfront Location",
+        "Ocean View Terrace",
+        "Modern Design",
+        "High Ceilings",
+        "Built-in Closets",
+        "Fully Equipped Kitchen",
+        "Air Conditioning",
+        "Ceiling Fans"
+      ],
+      amenities: [
+        "Rooftop Infinity Pool",
+        "Sun Deck",
+        "BBQ Area",
+        "24/7 Security",
+        "Elevator",
+        "Storage Unit",
+        "Bike Storage",
+        "Near 5th Avenue"
+      ],
+      agent: {
+        name: "Carlos Mendez",
+        role: "Founder & CEO",
+        phone: "+52 (984) 123-4567",
+        email: "carlos@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
+      }
+    },
+    {
+      id: "jungle-villa",
+      title: "Modern Jungle Villa with Cenote Access",
+      location: "Tulum",
+      address: "Carretera Tulum-Boca Paila Km 7, Tulum, 77780",
+      price: 1250000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
+      ],
+      bedrooms: 4,
+      bathrooms: 4,
+      area: 380,
+      yearBuilt: 2023,
+      parking: 3,
+      type: "Villa",
+      status: "For Sale",
+      badge: null,
+      description: `Nestled in the lush Tulum jungle, this architectural masterpiece seamlessly blends indoor and outdoor living. This eco-luxury villa offers privacy, sustainability, and direct access to a private cenote.
+
+The design emphasizes natural materials and open spaces, with soaring palapa roofs, polished concrete floors, and floor-to-ceiling glass that brings the jungle inside. The great room flows effortlessly to the outdoor living areas, infinity pool, and tropical gardens.
+
+Each of the four bedroom suites is a private sanctuary, featuring outdoor showers, premium linens, and jungle or pool views. The master suite occupies its own wing with a private terrace and plunge pool.
+
+Sustainable features include solar panels, rainwater collection, and a living roof. The property also includes a separate guest casita, perfect for visitors or rental income.`,
+      features: [
+        "Private Cenote Access",
+        "Infinity Pool",
+        "Solar Powered",
+        "Palapa Roofs",
+        "Outdoor Showers",
+        "Guest Casita",
+        "Tropical Gardens",
+        "Sustainable Design"
+      ],
+      amenities: [
+        "Gated Community",
+        "24/7 Security",
+        "Property Management",
+        "Housekeeping Available",
+        "Near Tulum Ruins",
+        "Beach Club Access",
+        "Yoga Deck",
+        "Fire Pit Area"
+      ],
+      agent: {
+        name: "James Wilson",
+        role: "International Relations",
+        phone: "+52 (984) 123-4567",
+        email: "james@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80"
+      }
+    },
+    {
+      id: "marina-apartment",
+      title: "Elegant Marina View Apartment",
+      location: "Puerto Aventuras",
+      address: "Marina Puerto Aventuras, 77782",
+      price: 375000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+        "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80"
+      ],
+      bedrooms: 2,
+      bathrooms: 2,
+      area: 128,
+      yearBuilt: 2019,
+      parking: 1,
+      type: "Apartment",
+      status: "For Sale",
+      badge: null,
+      description: `Enjoy marina living in this elegant 2-bedroom apartment overlooking the yachts and turquoise waters of Puerto Aventuras. This gated resort community offers a unique lifestyle with dolphin encounters, golf, and pristine beaches.
+
+The apartment features a contemporary design with quality finishes throughout. The living area opens to a spacious balcony with stunning marina views, perfect for watching the sunset over the boats.
+
+The kitchen is fully equipped with modern appliances and granite countertops. Both bedrooms are comfortable with ample closet space, and the master includes an en-suite bathroom.
+
+Puerto Aventuras offers exceptional amenities including beach clubs, restaurants, shops, and the only deep-water marina in the Riviera Maya.`,
+      features: [
+        "Marina Views",
+        "Private Balcony",
+        "Modern Kitchen",
+        "Granite Counters",
+        "Tile Floors",
+        "Air Conditioning",
+        "Ceiling Fans",
+        "Storage"
+      ],
+      amenities: [
+        "Gated Community",
+        "Beach Club",
+        "Marina Access",
+        "Golf Course",
+        "Tennis Courts",
+        "Restaurants",
+        "Shops",
+        "Dolphin Discovery"
+      ],
+      agent: {
+        name: "Ana Garcia",
+        role: "Legal Coordinator",
+        phone: "+52 (984) 123-4567",
+        email: "ana@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654980?w=200&q=80"
+      }
+    },
+    {
+      id: "golf-villa",
+      title: "Exclusive Golf Course Villa",
+      location: "Playacar Fase II",
+      address: "Paseo Xaman-Ha, Playacar Phase 2, 77710",
+      price: 1750000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+      ],
+      bedrooms: 5,
+      bathrooms: 5,
+      area: 520,
+      yearBuilt: 2020,
+      parking: 3,
+      type: "Villa",
+      status: "For Sale",
+      badge: "featured",
+      description: `This magnificent villa sits on the fairway of the prestigious Playacar Golf Club, offering an unparalleled lifestyle for golf enthusiasts and those seeking luxury living in a tropical paradise.
+
+Spanning over 520 square meters, the residence features five bedroom suites, each with private bathrooms and custom closets. The master wing includes a sitting area, two walk-in closets, and a spa bathroom with soaking tub and steam shower.
+
+The main level showcases a grand living room with 20-foot ceilings, formal dining room, chef's kitchen with butler's pantry, and family room opening to the outdoor entertaining area. The backyard oasis includes a heated pool, spa, outdoor kitchen, and covered terraces overlooking the golf course.
+
+Additional features include a home theater, wine cellar, gym, and separate maid's quarters. The property is fully gated with smart home technology throughout.`,
+      features: [
+        "Golf Course Frontage",
+        "Heated Pool & Spa",
+        "Home Theater",
+        "Wine Cellar",
+        "Smart Home",
+        "Chef's Kitchen",
+        "Maid's Quarters",
+        "3-Car Garage"
+      ],
+      amenities: [
+        "Playacar Golf Club",
+        "Beach Club Access",
+        "24/7 Security",
+        "Gated Community",
+        "Tennis Courts",
+        "Jogging Trails",
+        "Aviary",
+        "Mayan Ruins"
+      ],
+      agent: {
+        name: "Carlos Mendez",
+        role: "Founder & CEO",
+        phone: "+52 (984) 123-4567",
+        email: "carlos@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
+      }
+    },
+    {
+      id: "beach-studio",
+      title: "Charming Beach Studio - Perfect Investment",
+      location: "5th Avenue, Playa del Carmen",
+      address: "5th Avenue & 24th Street, Centro, 77710",
+      price: 189000,
+      currency: "USD",
+      images: [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80",
+        "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80"
+      ],
+      bedrooms: 1,
+      bathrooms: 1,
+      area: 65,
+      yearBuilt: 2020,
+      parking: 0,
+      type: "Studio",
+      status: "For Sale",
+      badge: "new",
+      description: `This charming studio is the perfect entry point to Riviera Maya real estate and an excellent income-producing investment. Located just one block from the beach and steps from the famous 5th Avenue, the location couldn't be better.
+
+The efficiently designed space features a comfortable sleeping area, modern bathroom, and kitchenette with everything you need. The private balcony offers a perfect spot to enjoy your morning coffee or evening cocktails.
+
+The building offers a stunning rooftop pool and lounge area with ocean views, perfect for relaxing after a day at the beach. The property comes fully furnished and is rental-ready, with an established rental history showing strong returns.
+
+Ideal for investors seeking hassle-free income or those wanting a Caribbean getaway at an accessible price point.`,
+      features: [
+        "Fully Furnished",
+        "Private Balcony",
+        "Kitchenette",
+        "Air Conditioning",
+        "WiFi Ready",
+        "Rental Ready",
+        "Modern Design",
+        "Great ROI"
+      ],
+      amenities: [
+        "Rooftop Pool",
+        "Ocean Views",
+        "Sun Deck",
+        "Security",
+        "Elevator",
+        "Steps to Beach",
+        "Near 5th Avenue",
+        "Restaurants"
+      ],
+      agent: {
+        name: "Maria Santos",
+        role: "Director of Sales",
+        phone: "+52 (984) 123-4567",
+        email: "maria@costarivierarealty.com",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80"
+      }
+    }
+  ];
+
+  return properties.map(property => ({
+    params: { id: property.id },
+    props: { property }
+  }));
+}
+
+const { property } = Astro.props;
+
+const formattedPrice = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: property.currency,
+  maximumFractionDigits: 0
+}).format(property.price);
+
+const similarProperties = [
+  {
+    id: "beachfront-condo",
+    title: "Luxury Beachfront Condo with Private Pool",
+    location: "Centro, Playa del Carmen",
+    price: 485000,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: 156,
+    type: "Condo",
+    badge: null
+  },
+  {
+    id: "marina-apartment",
+    title: "Elegant Marina View Apartment",
+    location: "Puerto Aventuras",
+    price: 375000,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: 128,
+    type: "Apartment",
+    badge: null
+  },
+  {
+    id: "jungle-villa",
+    title: "Modern Jungle Villa with Cenote Access",
+    location: "Tulum",
+    price: 1250000,
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    bedrooms: 4,
+    bathrooms: 4,
+    area: 380,
+    type: "Villa",
+    badge: null
+  }
+].filter(p => p.id !== property.id).slice(0, 3);
+---
+
+<Layout title={`${property.title} | Costa Riviera Realty`}>
+  <Header />
+  
+  <main class="property-detail">
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/properties">Properties</a>
+          <span>/</span>
+          <span>{property.title}</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-main">
+          <img src={property.images[0]} alt={property.title} id="mainImage" />
+          {property.badge && (
+            <span class={`property-badge badge-${property.badge}`}>
+              {property.badge === 'featured' && '★ Featured'}
+              {property.badge === 'new' && 'New Listing'}
+            </span>
+          )}
+        </div>
+        <div class="gallery-thumbs">
+          {property.images.slice(1, 5).map((img, index) => (
+            <div class="gallery-thumb" data-index={index + 1}>
+              <img src={img} alt={`${property.title} - Image ${index + 2}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="property-info section">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-main">
+            <div class="property-header">
+              <div class="header-top">
+                <span class="property-type-badge">{property.type}</span>
+                <span class="property-status">{property.status}</span>
+              </div>
+              <h1>{property.title}</h1>
+              <div class="property-location">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+                </svg>
+                <span>{property.address}</span>
+              </div>
+            </div>
+
+            <div class="property-stats">
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm0-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm12-3h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4zm2 8h-8V9h6c1.1 0 2 .9 2 2v4z"/>
+                </svg>
+                <div>
+                  <span class="stat-value">{property.bedrooms}</span>
+                  <span class="stat-label">Bedrooms</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <circle cx="7" cy="7" r="2"/>
+                  <path d="M20 13V4.83C20 3.27 18.73 2 17.17 2c-.75 0-1.47.3-2 .83l-1.25 1.25c-.16-.05-.33-.08-.51-.08-.4 0-.77.12-1.08.32l2.76 2.76c.2-.31.32-.68.32-1.08 0-.18-.03-.34-.07-.51l1.25-1.25a.828.828 0 011.41.59V13h-6.85c-.3-.21-.57-.45-.82-.72l-1.4-1.55c-.19-.21-.43-.38-.69-.5A2.251 2.251 0 005 12.25V13H2v6c0 1.1.9 2 2 2 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 1.1 0 2-.9 2-2v-6h-2z"/>
+                </svg>
+                <div>
+                  <span class="stat-value">{property.bathrooms}</span>
+                  <span class="stat-label">Bathrooms</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                </svg>
+                <div>
+                  <span class="stat-value">{property.area}</span>
+                  <span class="stat-label">m² Area</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+                <div>
+                  <span class="stat-value">{property.parking}</span>
+                  <span class="stat-label">Parking</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                </svg>
+                <div>
+                  <span class="stat-value">{property.yearBuilt}</span>
+                  <span class="stat-label">Year Built</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="property-section">
+              <h2>Description</h2>
+              <div class="description-content">
+                {property.description.split('\n\n').map(paragraph => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+
+            <div class="property-section">
+              <h2>Property Features</h2>
+              <div class="features-grid">
+                {property.features.map(feature => (
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="property-section">
+              <h2>Building Amenities</h2>
+              <div class="features-grid">
+                {property.amenities.map(amenity => (
+                  <div class="feature-item amenity">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>{amenity}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="property-section">
+              <h2>Location</h2>
+              <div class="map-placeholder">
+                <div class="map-content">
+                  <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <h4>{property.location}</h4>
+                  <p>{property.address}</p>
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(property.address)}`} target="_blank" rel="noopener" class="btn btn-secondary">
+                    View on Google Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-sidebar">
+            <div class="price-card">
+              <div class="price-header">
+                <span class="price-label">Asking Price</span>
+                <span class="price-value">{formattedPrice}</span>
+                <span class="price-note">USD • Negotiable</span>
+              </div>
+              <div class="price-actions">
+                <a href="#contact-form" class="btn btn-primary btn-lg">Schedule Viewing</a>
+                <a href={`https://wa.me/529841234567?text=Hi, I'm interested in ${property.title}`} target="_blank" class="btn btn-whatsapp btn-lg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  </svg>
+                  WhatsApp
+                </a>
+              </div>
+              <div class="price-share">
+                <button class="share-btn">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                  Save
+                </button>
+                <button class="share-btn">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                  </svg>
+                  Share
+                </button>
+                <button class="share-btn">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+                  </svg>
+                  Print
+                </button>
+              </div>
+            </div>
+
+            <div class="agent-card" id="contact-form">
+              <div class="agent-header">
+                <img src={property.agent.image} alt={property.agent.name} />
+                <div>
+                  <h4>{property.agent.name}</h4>
+                  <span>{property.agent.role}</span>
+                </div>
+              </div>
+              <div class="agent-contact">
+                <a href={`tel:${property.agent.phone}`} class="agent-link">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                  {property.agent.phone}
+                </a>
+                <a href={`mailto:${property.agent.email}`} class="agent-link">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  {property.agent.email}
+                </a>
+              </div>
+              <form class="agent-form">
+                <h5>Interested in this property?</h5>
+                <div class="form-group"><input type="text" placeholder="Your Name" required /></div>
+                <div class="form-group"><input type="email" placeholder="Your Email" required /></div>
+                <div class="form-group"><input type="tel" placeholder="Your Phone" /></div>
+                <div class="form-group"><textarea rows="3" placeholder={`I'm interested in ${property.title}...`}></textarea></div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
+            </div>
+
+            <div class="calculator-card">
+              <h4>Mortgage Calculator</h4>
+              <div class="calc-row"><span>Property Price</span><span>{formattedPrice}</span></div>
+              <div class="calc-row"><span>Down Payment (20%)</span><span>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(property.price * 0.2)}</span></div>
+              <div class="calc-row"><span>Loan Amount</span><span>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(property.price * 0.8)}</span></div>
+              <div class="calc-result">
+                <span>Est. Monthly Payment</span>
+                <span class="calc-monthly">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format((property.price * 0.8) / 360 * 1.5)}</span>
+                <span class="calc-note">*Based on 30yr @ 7% APR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="similar-properties section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Similar Properties</h2>
+          <a href="/properties" class="view-all">View All Properties →</a>
+        </div>
+        <div class="similar-grid">
+          {similarProperties.map(prop => (
+            <PropertyCard {...prop} />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .property-detail { background: var(--color-sand-light); }
+  .breadcrumb-bar { background: var(--color-white); padding: var(--space-md) 0; margin-top: 70px; border-bottom: 1px solid var(--color-sand); }
+  .breadcrumb { display: flex; align-items: center; gap: var(--space-sm); font-size: 0.85rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--color-ocean); }
+  .breadcrumb span { color: var(--color-charcoal); opacity: 0.5; }
+  .breadcrumb span:last-child { opacity: 1; }
+
+  .gallery-section { background: var(--color-white); }
+  .gallery-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-sm); max-height: 550px; }
+  .gallery-main { position: relative; overflow: hidden; }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .property-badge { position: absolute; top: var(--space-lg); left: var(--space-lg); padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+  .badge-featured { background: var(--color-gold); color: var(--color-midnight); }
+  .badge-new { background: var(--color-seafoam); color: var(--color-white); }
+  .gallery-thumbs { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: var(--space-sm); }
+  .gallery-thumb { position: relative; overflow: hidden; cursor: pointer; }
+  .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-base); }
+  .gallery-thumb:hover img { transform: scale(1.05); }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 400px; gap: var(--space-3xl); align-items: start; }
+  .property-header { margin-bottom: var(--space-2xl); }
+  .header-top { display: flex; gap: var(--space-md); margin-bottom: var(--space-md); }
+  .property-type-badge { padding: var(--space-xs) var(--space-md); background: var(--color-ocean-deep); color: var(--color-white); border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+  .property-status { padding: var(--space-xs) var(--space-md); background: var(--color-seafoam); color: var(--color-white); border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+  .property-header h1 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: var(--space-md); }
+  .property-location { display: flex; align-items: center; gap: var(--space-sm); color: var(--color-charcoal); }
+  .property-location svg { color: var(--color-seafoam); }
+
+  .property-stats { display: flex; gap: var(--space-xl); padding: var(--space-xl); background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: var(--space-2xl); flex-wrap: wrap; }
+  .stat-item { display: flex; align-items: center; gap: var(--space-md); }
+  .stat-item svg { color: var(--color-ocean); }
+  .stat-value { display: block; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--color-ocean-deep); line-height: 1; }
+  .stat-label { font-size: 0.8rem; color: var(--color-charcoal); opacity: 0.7; }
+
+  .property-section { background: var(--color-white); padding: var(--space-2xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: var(--space-xl); }
+  .property-section h2 { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-lg); padding-bottom: var(--space-md); border-bottom: 2px solid var(--color-sand); }
+  .description-content p { margin-bottom: var(--space-lg); line-height: 1.8; }
+  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  .feature-item { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) 0; }
+  .feature-item svg { color: var(--color-seafoam); flex-shrink: 0; }
+  .feature-item.amenity svg { color: var(--color-gold); }
+
+  .map-placeholder { background: var(--color-sand-light); border-radius: var(--radius-md); padding: var(--space-3xl); text-align: center; }
+  .map-content svg { color: var(--color-ocean-light); margin-bottom: var(--space-md); }
+  .map-content h4 { font-family: var(--font-body); margin-bottom: var(--space-xs); }
+  .map-content p { color: var(--color-charcoal); opacity: 0.7; margin-bottom: var(--space-lg); }
+
+  .info-sidebar { position: sticky; top: 100px; }
+  .price-card { background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); overflow: hidden; margin-bottom: var(--space-xl); }
+  .price-header { padding: var(--space-xl); background: linear-gradient(135deg, var(--color-ocean-deep) 0%, var(--color-ocean) 100%); text-align: center; color: var(--color-white); }
+  .price-label { display: block; font-size: 0.85rem; opacity: 0.8; margin-bottom: var(--space-xs); }
+  .price-value { display: block; font-family: var(--font-display); font-size: 2.5rem; font-weight: 600; margin-bottom: var(--space-xs); }
+  .price-note { font-size: 0.85rem; opacity: 0.7; }
+  .price-actions { padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); }
+  .btn-whatsapp { background: #25D366; color: var(--color-white); display: flex; align-items: center; justify-content: center; gap: var(--space-sm); }
+  .btn-whatsapp:hover { background: #128C7E; color: var(--color-white); }
+  .price-share { display: flex; justify-content: center; gap: var(--space-md); padding: var(--space-md); border-top: 1px solid var(--color-sand); }
+  .share-btn { display: flex; align-items: center; gap: var(--space-xs); padding: var(--space-sm); background: transparent; border: none; color: var(--color-charcoal); font-size: 0.85rem; cursor: pointer; }
+  .share-btn:hover { color: var(--color-ocean); }
+
+  .agent-card { background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-xl); margin-bottom: var(--space-xl); }
+  .agent-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-sand); }
+  .agent-header img { width: 64px; height: 64px; border-radius: var(--radius-full); object-fit: cover; }
+  .agent-header h4 { font-family: var(--font-body); font-size: 1.1rem; margin-bottom: var(--space-xs); }
+  .agent-header span { font-size: 0.85rem; color: var(--color-seafoam); }
+  .agent-contact { display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-lg); }
+  .agent-link { display: flex; align-items: center; gap: var(--space-sm); color: var(--color-charcoal); font-size: 0.9rem; }
+  .agent-link svg { color: var(--color-ocean); }
+  .agent-link:hover { color: var(--color-ocean); }
+  .agent-form h5 { font-family: var(--font-body); font-size: 1rem; margin-bottom: var(--space-md); }
+  .agent-form .form-group { margin-bottom: var(--space-sm); }
+  .agent-form input, .agent-form textarea { width: 100%; padding: var(--space-md); border: 2px solid var(--color-sand); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.9rem; }
+  .agent-form input:focus, .agent-form textarea:focus { outline: none; border-color: var(--color-ocean); }
+  .agent-form .btn { width: 100%; margin-top: var(--space-md); }
+
+  .calculator-card { background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-xl); }
+  .calculator-card h4 { font-family: var(--font-body); font-size: 1rem; margin-bottom: var(--space-lg); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-sand); }
+  .calc-row { display: flex; justify-content: space-between; padding: var(--space-sm) 0; font-size: 0.9rem; color: var(--color-charcoal); }
+  .calc-result { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 2px solid var(--color-sand); text-align: center; }
+  .calc-result span:first-child { display: block; font-size: 0.85rem; color: var(--color-charcoal); margin-bottom: var(--space-xs); }
+  .calc-monthly { display: block; font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; color: var(--color-ocean-deep); }
+  .calc-note { display: block; font-size: 0.75rem; color: var(--color-charcoal); opacity: 0.6; margin-top: var(--space-xs); }
+
+  .similar-properties { background: var(--color-sand-light); }
+  .similar-properties .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2xl); }
+  .similar-properties .section-title { margin-bottom: 0; }
+  .view-all { color: var(--color-ocean); font-weight: 500; }
+  .view-all:hover { color: var(--color-ocean-deep); }
+  .similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+
+  @media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: 1fr; max-height: none; }
+    .gallery-main { aspect-ratio: 16/9; }
+    .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+    .info-grid { grid-template-columns: 1fr; }
+    .info-sidebar { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+    .price-card, .agent-card { margin-bottom: 0; }
+    .calculator-card { grid-column: span 2; }
+    .similar-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-thumbs { grid-template-columns: repeat(2, 1fr); }
+    .property-stats { gap: var(--space-md); }
+    .stat-item { flex: 1 1 45%; }
+    .features-grid { grid-template-columns: 1fr; }
+    .info-sidebar { grid-template-columns: 1fr; }
+    .calculator-card { grid-column: span 1; }
+    .similar-properties .section-header { flex-direction: column; gap: var(--space-md); text-align: center; }
+    .similar-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const mainImage = document.getElementById('mainImage') as HTMLImageElement;
+  const thumbs = document.querySelectorAll('.gallery-thumb');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const img = thumb.querySelector('img') as HTMLImageElement;
+      if (mainImage && img) mainImage.src = img.src.replace('w=800', 'w=1200');
+    });
+  });
+</script>
